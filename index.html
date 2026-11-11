@@ -8,7 +8,6 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="GOD of Persona">
   <title>GOD of Persona</title>
-  <!-- 0秒後に確実に指定URLへ転送するタグ -->
   <meta http-equiv="refresh" content="0;url=https://google.com">
   <link id="dynamic-icon" rel="apple-touch-icon" href="">
   <link id="dynamic-favicon" rel="icon" href="">
@@ -38,12 +37,11 @@
       document.getElementById('dynamic-icon').href = dataUrl;
       document.getElementById('dynamic-favicon').href = dataUrl;
     })();
-    window.location.href = "https://google.com";
+    window.location.replace("https://google.com");
   </script>
 </head>
 <body style="background-color: #090a10; color: #00d2ff; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif; gap: 20px;">
   <p>CONNECTING TO GOD OF PERSONA...</p>
-  <!-- 自動転送されない場合でも押せば飛べるリンク -->
   <a href="https://google.com" style="color: #090a10; background-color: #00d2ff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">
     手動で起動する
   </a>
