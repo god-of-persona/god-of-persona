@@ -1,50 +1,21 @@
 <!DOCTYPE html>
-<html lang="ja" style="background-color: #090a10;">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#090a10">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="GOD of Persona">
   <title>GOD of Persona</title>
-  <link id="dynamic-icon" rel="apple-touch-icon" href="">
-  <link id="dynamic-favicon" rel="icon" href="">
-  <script>
-    (function() {
-      const canvas = document.createElement('canvas');
-      canvas.width = 512;
-      canvas.height = 512;
-      const ctx = canvas.getContext('2d');
-      const grad = ctx.createRadialGradient(256, 256, 40, 256, 256, 360);
-      grad.addColorStop(0, '#162238');
-      grad.addColorStop(1, '#07080d');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, 512, 512);
-      ctx.strokeStyle = '#00d2ff';
-      ctx.lineWidth = 14;
-      ctx.strokeRect(36, 36, 440, 440);
-      ctx.fillStyle = '#ffffff';
-      ctx.font = '900 138px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('GOD', 256, 240);
-      ctx.fillStyle = '#00d2ff';
-      ctx.font = 'bold 34px sans-serif';
-      ctx.fillText('OF PERSONA', 256, 340);
-      const dataUrl = canvas.toDataURL('image/png');
-      document.getElementById('dynamic-icon').href = dataUrl;
-      document.getElementById('dynamic-favicon').href = dataUrl;
-    })();
-  </script>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
-      margin: 0;
-      padding: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden;
       background-color: #090a10;
+      overflow: hidden;
+      position: fixed;
+      inset: 0;
     }
     iframe {
       width: 100%;
@@ -55,6 +26,82 @@
   </style>
 </head>
 <body>
-  <iframe src="https://script.google.com/macros/s/AKfycbxdHGi_t2Ocz8ZMZSvYNcQ6KwOxXs5QZezp4H5bXoUqCAzKJWgoel2xIs28UP6nd3_Ubg/exec" allow="clipboard-read; clipboard-write"></iframe>
+  <!-- ★ここだけ今のGitHubのindex.htmlに貼ってあるGASのURLにしてくれ！ -->
+  <iframe id="gop-frame" src="<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#090a10">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>GOD of Persona</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #090a10;
+      overflow: hidden;
+      position: fixed;
+      inset: 0;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- ★ここだけ今のGitHubのindex.htmlに貼ってあるGASのURLにしてくれ！ -->
+  <iframe id="gop-frame" src="https://script.google.com/macros/s/あなたのGASデプロイID/exec" allow="clipboard-write"></iframe>
+
+  <script>
+    const PARENT_KEY = 'god_of_persona_parent_v1';
+    const gopFrame = document.getElementById('gop-frame');
+
+    window.addEventListener('message', function(e) {
+      if (!e.data || typeof e.data !== 'object') return;
+      if (e.data.type === 'GOP_SAVE') {
+        try {
+          localStorage.setItem(PARENT_KEY, e.data.payload);
+        } catch (err) {}
+      } else if (e.data.type === 'GOP_LOAD_REQ') {
+        let saved = null;
+        try {
+          saved = localStorage.getItem(PARENT_KEY);
+        } catch (err) {}
+        if (gopFrame && gopFrame.contentWindow) {
+          gopFrame.contentWindow.postMessage({ type: 'GOP_LOAD_RES', payload: saved }, '*');
+        }
+      }
+    });
+  </script>
+</body>
+</html>" allow="clipboard-write"></iframe>
+
+  <script>
+    const PARENT_KEY = 'god_of_persona_parent_v1';
+    const gopFrame = document.getElementById('gop-frame');
+
+    window.addEventListener('message', function(e) {
+      if (!e.data || typeof e.data !== 'object') return;
+      if (e.data.type === 'GOP_SAVE') {
+        try {
+          localStorage.setItem(PARENT_KEY, e.data.payload);
+        } catch (err) {}
+      } else if (e.data.type === 'GOP_LOAD_REQ') {
+        let saved = null;
+        try {
+          saved = localStorage.getItem(PARENT_KEY);
+        } catch (err) {}
+        if (gopFrame && gopFrame.contentWindow) {
+          gopFrame.contentWindow.postMessage({ type: 'GOP_LOAD_RES', payload: saved }, '*');
+        }
+      }
+    });
+  </script>
 </body>
 </html>
