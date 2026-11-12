@@ -26,61 +26,7 @@
   </style>
 </head>
 <body>
-  <!-- ★ここだけ今のGitHubのindex.htmlに貼ってあるGASのURLにしてくれ！ -->
-  <iframe id="gop-frame" src="<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <meta name="theme-color" content="#090a10">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>GOD of Persona</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      width: 100%;
-      height: 100%;
-      background-color: #090a10;
-      overflow: hidden;
-      position: fixed;
-      inset: 0;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-  </style>
-</head>
-<body>
-  <!-- ★ここだけ今のGitHubのindex.htmlに貼ってあるGASのURLにしてくれ！ -->
-  <iframe id="gop-frame" src="https://script.google.com/macros/s/あなたのGASデプロイID/exec" allow="clipboard-write"></iframe>
-
-  <script>
-    const PARENT_KEY = 'god_of_persona_parent_v1';
-    const gopFrame = document.getElementById('gop-frame');
-
-    window.addEventListener('message', function(e) {
-      if (!e.data || typeof e.data !== 'object') return;
-      if (e.data.type === 'GOP_SAVE') {
-        try {
-          localStorage.setItem(PARENT_KEY, e.data.payload);
-        } catch (err) {}
-      } else if (e.data.type === 'GOP_LOAD_REQ') {
-        let saved = null;
-        try {
-          saved = localStorage.getItem(PARENT_KEY);
-        } catch (err) {}
-        if (gopFrame && gopFrame.contentWindow) {
-          gopFrame.contentWindow.postMessage({ type: 'GOP_LOAD_RES', payload: saved }, '*');
-        }
-      }
-    });
-  </script>
-</body>
-</html>" allow="clipboard-write"></iframe>
+  <iframe id="gop-frame" src="https://script.google.com/macros/s/AKfycbxdHGi_t2Ocz8ZMZSvYNcQ6KwOxXs5QZezp4H5bXoUqCAzKJWgoel2xIs28UP6nd3_Ubg/exec" allow="clipboard-write"></iframe>
 
   <script>
     const PARENT_KEY = 'god_of_persona_parent_v1';
